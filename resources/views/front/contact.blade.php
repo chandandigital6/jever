@@ -377,7 +377,7 @@
                     <a href="#" class="icon twitter">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="https://www.instagram.com/shristijewellers?igsh=Z3ZhaGNzeG1oMWtw"
+                    <a href="#"
                        class="icon instagram">
                         <i class="fab fa-instagram"></i>
                     </a>

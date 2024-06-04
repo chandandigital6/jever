@@ -17,12 +17,12 @@
 <div class="header-top container">
     <div class="menu-icon" id="menu-icon">&#9776;</div>
     <div class="logo">
-        <a href="{{route('home')}}"><img src="{{asset('asset/images/logo.png')}}" style="margin-left: -65%;" alt="Logo"></a>
+        <a href="{{route('home')}}"><img src="{{asset('asset/images/jevarMahalLogo.png')}}" alt="Logo"></a>
     </div>
     <div class="contact-info">
         <h2><i class="fa fa-phone"></i> CONTACT NUMBER</h2>
         <p>
-            <a href="tel:+91{{$contact?->phone ?? '9414400331'}}"><span class="bookingno2">+91-{{$contact?->phone ?? '9414400331'}}<br>+91-7014137278</span></a>
+            <a href="tel:+91{{$contact?->phone ?? ''}}"><span class="bookingno2">+91-{{$contact?->phone ?? ''}}<br></span></a>
         </p>
     </div>
 </div>
@@ -47,7 +47,7 @@
 <!-- Sidebar -->
 <aside id="sidebar">
     <div class="sidebar-header">
-        <img src="{{asset('asset/images/logo.png')}}" alt="Logo" class="logo">
+        <img src="{{asset('asset/images/jevarMahalLogo.png')}}" alt="Logo" class="logo">
     </div>
     <ul class="sidebar-menu">
         <li><a href="{{route('abouts')}}"><i class="fa fa-info-circle"></i> About Us</a></li>
@@ -78,7 +78,7 @@
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-section about">
-            <img src="{{asset('asset/images/logo.png')}}" alt="Shristi Jewellers Logo" class="footer-logo">
+            <img src="{{asset('asset/images/jevarMahalLogo.png')}}" alt="Shristi Jewellers Logo" class="footer-logo">
             <p>About Company</p>
         </div>
         <div class="footer-section menu">
@@ -97,7 +97,7 @@
             <h3>Contact Us</h3>
             <p class="text-dark">{!! $contact?->full_address ?? '' !!}</p>
             <p><a href="mailto:{{$contact?->email ?? ''}}">{{$contact?->email ?? ''}}</a></p>
-            <p><a href="tel:+91{{$contact?->phone ?? '9414400331'}}">+91 {{$contact?->phone ?? '9414400331'}}</a></p>
+            <p><a href="tel:+91{{$contact?->phone ?? '9414400331'}}">+91 {{$contact?->phone ?? ''}}</a></p>
         </div>
         <div class="footer-section app-links">
 {{--            <img src="{{asset('asset/images/mobile.webp')}}" alt="Phone" class="phone">--}}
@@ -108,7 +108,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; {{Carbon\Carbon::today()->format('Y')}} Shristi Jewellers</p>
+        <p>&copy; {{Carbon\Carbon::today()->format('Y')}} Jevar Mahal</p>
         <p>Design & Develop By <a href="https://realvictorygroups.com/">Real Victory Groups</a></p>
     </div>
 </footer>
