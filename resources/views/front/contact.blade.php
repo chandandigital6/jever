@@ -1,5 +1,6 @@
 @extends('frontLayouts.main')
 @section('content')
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/3pOI2Q3n5eht4bo6E5Ff5e5Mvz1+ec6dpnB7/3" crossorigin="anonymous">
 
     <style>
         .contact-us {
@@ -297,7 +298,20 @@
 
 <main>
 
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+
+
+
     <div class="contact-us">
+
         <h2>CONTACT US</h2>
         <div class="contact-container">
             <div class="contact-box">
@@ -305,22 +319,22 @@
                     <img src="{{asset('asset/images/phone-solid.svg')}}" alt="Phone Icon">
                 </div>
                 <h3>NUMBER</h3>
-                <p>{{ $contact->phone }}</p>
-                <p>{{ $contact->phone1 }}</p>
+                <p>{{ $contact?->phone }}</p>
+                <p>{{ $contact?->phone1 }}</p>
             </div>
             <div class="contact-box">
                 <div class="icon">
                     <img src="{{asset('asset/images/location-dot-solid.svg')}}" alt="Location Icon">
                 </div>
                 <h3>ADDRESS</h3>
-                <p>{!! $contact->full_address !!}</p>
+                <p>{!! $contact?->full_address !!}</p>
             </div>
             <div class="contact-box">
                 <div class="icon">
                     <img src="{{asset('asset/images/envelope-solid.svg')}}" alt="Email Icon">
                 </div>
                 <h3>E-MAIL</h3>
-                <p>{{ $contact->email }}</p>
+                <p>{{ $contact?->email }}</p>
             </div>
         </div>
     </div>
@@ -331,33 +345,42 @@
         <div class="form-container">
             <div class="form-header">INQUIRY FORM</div>
             <div class="form-body">
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" placeholder="Please enter your Name" class="form-input" required>
-                        <span class="form-label">Name *</span>
+                <form action="{{route('inquiry.store')}}" method="POST">
+                    @csrf
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Please enter your Name" class="form-input" required>
+                            <span class="form-label">Name *</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Please enter your email" class="form-input" required>
+                            <span class="form-label">Email *</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Please enter your phone" class="form-input" required>
+                            <span class="form-label">Phone *</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Please enter Subject" class="form-input">
+                            <span class="form-label">Subject</span>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Please enter your email" class="form-input" required>
-                        <span class="form-label">Email *</span>
+                        <textarea placeholder="Message for me *" name="message" class="form-textarea" required></textarea>
+                        <span class="form-label">Message *</span>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="tel" placeholder="Please enter your phone" class="form-input" required>
-                        <span class="form-label">Phone *</span>
+                    <div class="form-row">
+                        <button type="submit" class="form-submit">Submit</button>
                     </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Please enter Subject" class="form-input">
-                        <span class="form-label">Subject</span>
+                </form>
+                @if(session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Message for me *" class="form-textarea" required></textarea>
-                    <span class="form-label">Message *</span>
-                </div>
-                <div class="form-row">
-                    <button type="submit" class="form-submit">Submit</button>
-                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -397,5 +420,8 @@
 </main>
 
 <!--Main End-->
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-QJHtvGhmr9LbucfU8HiZGVqF0K2l1Lrco2BX1tEK8m6/Lu+7d/aBfp3s9ZO/+dwe" crossorigin="anonymous"></script>
+
 
 @endsection
