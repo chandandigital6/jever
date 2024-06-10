@@ -97,12 +97,12 @@
                 </li>
 
                 <li class="nav-item">
-{{--                     <a href="{{route('service.index')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon 	fa fa-bullseye"></i>--}}
-{{--                        <p>--}}
-{{--                            Our Services--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
+                     <a href="{{route('price.index')}}" class="nav-link">
+                        <i class="nav-icon 	fa fa-bullseye"></i>
+                        <p>
+                            Price
+                        </p>
+                    </a>
                 </li>
 
                 <li class="nav-item">

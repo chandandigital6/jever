@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -26,50 +25,34 @@
                 <div class="card">
                     <div class="card-header bg-primary text-white">
                         <div class="d-flex justify-content-between align-items-center">
-                            <h1>Products</h1>
-                            <a href="{{route('product.create')}}" class="btn btn-light">Create Product</a>
+                            <h1>Price</h1>
+                            <a href="{{ route('price.create') }}" class="btn btn-light">Create Price</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        <form action="" method="GET" class="mb-4">
-                            <div class="input-group">
-                                <input type="text" name="keyword" class="form-control" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary">Search</button>
-                                </div>
-                            </div>
-                        </form>
 
                         <div class="table-responsive">
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Name</th>
                                     <th>Metal</th>
                                     <th>Carat</th>
                                     <th>Price</th>
-                                    <th>Weight</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse ($products as $product)
+                                @forelse ($prices as $price)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $product->name }}</td>
-                                        <td>{{ $product->metal }}</td>
-                                        <td>{{$product->carat.'K'}}</td>
-                                        @php
-                                            $price = \App\Models\Price::where(['carat' => $product->carat, 'metal' => $product->metal])->first()?->price;
-                                        @endphp
-                                        <td>{{$product->weight * $price}}</td>
-                                        <td>{{$product->weight}}</td>
+                                        <td>{{ ucfirst($price->metal) }}</td>
+                                        <td>{{$price->carat}}K</td>
+                                        <td>₹ {{$price->price}}/gm</td>
                                         <td>
-                                            <a href="{{ route('product.edit', $product->id) }}" class="btn btn-primary">Edit</a>
-                                            <a href="{{ route('product.delete', $product->id) }}" class="btn btn-danger">Delete</a>
-                                            <!-- Add delete button if needed -->
+                                            <a href="{{ route('price.edit', $price->id) }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ route('price.delete', $price->id) }}" class="btn btn-danger">Delete</a>
 
                                         </td>
                                     </tr>

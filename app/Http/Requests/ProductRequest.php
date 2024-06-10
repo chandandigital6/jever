@@ -24,7 +24,8 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'required',
             'carat' => 'required',
-            'price' => 'required|numeric'
+            'metal' => 'required',
+            'weight' => 'required',
         ];
     }
 }

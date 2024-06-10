@@ -20,6 +20,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\DiscountController;
 use App\Http\Controllers\CoinController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\PriceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -154,6 +155,15 @@ Route::group(['middleware' => ['auth']],function (){
        Route::get('edit/{coin}',[CoinController::class, 'edit'])->name('edit');
        Route::post('update/{coin}', [CoinController::class, 'update'])->name('update');
        Route::get('delete/{coin}', [CoinController::class, 'delete'])->name('delete');
+    });
+
+    Route::prefix('price')->name('price.')->group(function (){
+        Route::get('/', [PriceController::class, 'index'])->name('index');
+        Route::get('create', [PriceController::class, 'create'])->name('create');
+        Route::post('store', [PriceController::class, 'store'])->name('store');
+        Route::get('edit/{price}', [PriceController::class, 'edit'])->name('edit');
+        Route::post('update/{price}', [PriceController::class, 'update'])->name('update');
+        Route::get('delete/{price}', [PriceController::class, 'delete'])->name('delete');
     });
 
 

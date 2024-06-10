@@ -21,20 +21,24 @@
                 <input type="text" class="form-control" id="name" name="name" value="{{ $product->name }}">
             </div>
             <div class="form-group">
-                <label for="title">Price</label>
-                <input type="text" class="form-control" id="price" name="price" value="{{ $product->price }}" required>
+                <label for="title">Metal</label>
+                <select name="metal" id="" class="form-control">
+                    <option value="">Select</option>
+                    <option value="gold" {{$product->carat == 'gold' ? 'selected' : ''}}>Gold</option>
+                    <option value="silver" {{$product->carat == 'silver' ? 'selected' : ''}}>Silver</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="carat">Carat</label>
+                <input type="text" class="form-control" id="carat" name="carat" value="{{ $product->carat }}" required>
             </div>
 
             <div class="form-group">
-                <label for="title">Price</label>
-                <select name="carat" id="" class="form-control">
-                    <option value="">Select</option>
-                    <option value="18" {{$product->carat == '18' ? 'selected' : ''}}>18K</option>
-                    <option value="20" {{$product->carat == '20' ? 'selected' : ''}}>20K</option>
-                    <option value="22" {{$product->carat == '22' ? 'selected' : ''}}>22K</option>
-                    <option value="24" {{$product->carat == '24' ? 'selected' : ''}}>24K</option>
-                </select>
+                <label for="weight">Price</label>
+                <input type="text" class="form-control" id="weight" name="weight" value="{{ $product->weight }}" required>
             </div>
+
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

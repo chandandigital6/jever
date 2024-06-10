@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container mt-5">
-        <h1>Create Product</h1>
+        <h1>Coin</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -14,30 +14,24 @@
             </div>
         @endif
 
-        <form action="{{ route('product.store') }}" method="POST">
+        <form action="{{ route('price.update', ['price' => $price]) }}" method="POST">
             @csrf
-            <div class="form-group">
-                <label for="image">Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
-            </div>
             <div class="form-group">
                 <label for="title">Metal</label>
                 <select name="metal" id="" class="form-control">
-                    <option value="">Select metal</option>
-                    <option value="gold">Gold</option>
-                    <option value="silver">Silver</option>
+                    <option value="">Gold/Silver</option>
+                    <option value="gold" {{$price->metal == 'gold' ? 'selected' : ''}}>Gold</option>
+                    <option value="silver" {{$price->metal == 'silver' ? 'selected' : ''}}>Silver</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="carat">Carat</label>
-                <input type="text" class="form-control" id="carat" name="carat" value="{{ old('carat') }}" required>
+                <input type="number" class="form-control" id="" name="carat" placeholder="Carat" value="{{ $price->carat }}">
             </div>
-
             <div class="form-group">
-                <label for="weight">Weight (grams)</label>
-                <input type="text" class="form-control" id="weight" name="weight" value="{{ old('weight') }}" required>
+                <label for="Price">Price</label>
+                <input type="number" class="form-control" id="price" name="price" value="{{ $price->price }}">
             </div>
-
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
