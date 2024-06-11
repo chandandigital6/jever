@@ -25,7 +25,7 @@
                                 <a href="{{route('productDetails', ['product' => $product])}}" class="btn btn-primary btn-lg rounded-pill">
                                     <i class="bi bi-arrow-right"></i> Details
                                 </a>
-                                <a href="https://wa.me/?text={{route('productDetails', ['product' => $product])}}" class="btn btn-primary btn-lg rounded-pill">
+                                <a href="https://wa.me/?text={{route('productDetails', ['product' => $product])}}" target="_blank" class="btn btn-primary btn-lg rounded-pill">
                                     <i class="bi bi-arrow-right"></i> Whatsapp
                                 </a>
                             </div>
