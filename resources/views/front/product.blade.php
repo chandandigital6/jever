@@ -21,11 +21,11 @@
                                 @php
                                     $price = \App\Models\Price::where(['carat' => $product->carat, 'metal' => $product->metal])->first()?->price;
                                 @endphp
-                                <p class="card-text">Price: ${{round($product->weight * $price)}}</p>
-                                <a href="{{route('productDetails', ['product' => $product])}}" class="btn btn-primary btn-lg rounded-pill">
+                                <p class="card-text">Price: &#8377; {{round($product->weight * $price)}}</p>
+                                <a href="{{route('productDetails', ['product' => $product])}}" class="btn btn-primary btn-sm rounded-pill mt-2">
                                     <i class="bi bi-arrow-right"></i> Details
                                 </a>
-                                <a href="https://wa.me/?text={{route('productDetails', ['product' => $product])}}" target="_blank" class="btn btn-primary btn-lg rounded-pill">
+                                <a href="https://wa.me/?text={{route('productDetails', ['product' => $product])}}" target="_blank" class="btn btn-success btn-sm rounded-pill mt-2">
                                     <i class="bi bi-arrow-right"></i> Whatsapp
                                 </a>
                             </div>
