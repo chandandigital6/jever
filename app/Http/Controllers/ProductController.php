@@ -39,6 +39,13 @@ class ProductController extends Controller
     }
 
     public function delete(Product $product){
+        $images = $product->images;
+        if ($images != null){
+            foreach ($images as $image){
+                unlink('storage/'. $image->path);
+                $image->delete();
+            }
+        }
         $product->delete();
         return back()->with('success', 'deleted successfully');
     }

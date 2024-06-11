@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container mt-5">
-        <h1>Coin</h1>
+        <h1>Price</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">

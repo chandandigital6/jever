@@ -605,6 +605,7 @@
                         <table class="p-title-cover">
                             <tbody>
                             <tr>
+                                <td><span>Image</span></td>
                                 <td><span>Name</span></td>
                                 <td><span>Metal</span></td>
                                 <td><span>Carat</span></td>
