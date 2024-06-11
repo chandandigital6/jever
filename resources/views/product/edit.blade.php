@@ -14,8 +14,12 @@
             </div>
         @endif
 
-        <form action="{{ route('product.update', ['product' => $product]) }}" method="POST">
+        <form action="{{ route('product.update', ['product' => $product]) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <div class="form-group">
+                <label for="image">Product Image</label>
+                <input type="file" class="form-control" id="images" name="images[]" multiple >
+            </div>
             <div class="form-group">
                 <label for="image">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ $product->name }}">

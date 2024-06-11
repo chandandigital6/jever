@@ -26,6 +26,7 @@ class ProductRequest extends FormRequest
             'carat' => 'required',
             'metal' => 'required',
             'weight' => 'required',
+            'images.*' => '',
         ];
     }
 }

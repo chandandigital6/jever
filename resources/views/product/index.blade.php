@@ -46,6 +46,7 @@
                                 <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Metal</th>
                                     <th>Carat</th>
@@ -56,8 +57,9 @@
                                 </thead>
                                 <tbody>
                                 @forelse ($products as $product)
-                                    <tr>
+                                    <tr >
                                         <td>{{ $loop->iteration }}</td>
+                                        <td><img src="{{asset('storage/'. $product->images?->first()?->path)}}" alt="{{$product->name}}" style="width: 80px; height: auto; border-radius: 50%;"></td>
                                         <td>{{ $product->name }}</td>
                                         <td>{{ $product->metal }}</td>
                                         <td>{{$product->carat.'K'}}</td>

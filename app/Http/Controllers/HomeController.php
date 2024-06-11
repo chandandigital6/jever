@@ -44,4 +44,9 @@ class HomeController extends Controller
         return view('front.index', compact('prices', 'products'));
     }
 
+    public function product(){
+        $products = Product::all();
+        return view('front.product', compact('products'));
+    }
+
 }

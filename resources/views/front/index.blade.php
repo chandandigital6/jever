@@ -621,6 +621,8 @@
                                     <tbody>
                                     @foreach($products as $product)
                                         <tr>
+
+                                            <td><img src="{{asset('storage/'. $product->images?->first()?->path)}}" alt="{{$product->name}}" style="width: 80px; height: auto; border-radius: 50%;"></td>
                                             <td><span>{{$product->name}} </span></td>
                                             <td><span class="e">{{$product->metal}}</span></td>
                                             <td><span class="e">{{$product->carat}}</span></td>

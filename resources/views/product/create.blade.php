@@ -14,14 +14,18 @@
             </div>
         @endif
 
-        <form action="{{ route('product.store') }}" method="POST">
+        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="image">Name</label>
+                <label for="image">Product Image</label>
+                <input type="file" class="form-control" id="images" name="images[]" multiple>
+            </div>
+            <div class="form-group">
+                <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
             </div>
             <div class="form-group">
-                <label for="title">Metal</label>
+                <label for="metal">Metal</label>
                 <select name="metal" id="" class="form-control">
                     <option value="">Select metal</option>
                     <option value="gold">Gold</option>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\ProductImage;
+use App\Models\ProductImages;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -18,8 +20,17 @@ class ProductController extends Controller
     }
 
     public function store(ProductRequest $request){
-//        dd($request->all());
-        Product::create($request->all());
+        $product = Product::create($request->all());
+
+        $images = $request->file('images');
+        foreach ($images as $image){
+            $path = $image->store('public/');
+            ProductImage::create([
+                'product_id' => $product->id,
+                'path' => str_replace('public/', '', $path),
+            ]);
+        }
+
         return redirect('product')->with('success', 'Product created successfully');
     }
 
@@ -34,6 +45,16 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, Product $product){
         $product->update($request->all());
+
+        $images = $request->file('images');
+        foreach ($images as $image){
+            $path = $image->store('public/productImage');
+            $productImage = ProductImage::create([
+                'product_id' => $product->id,
+                'path' => str_replace('public/', '', $path),
+            ]);
+        }
+
         return redirect('product')->with('success', 'updated successfully');
     }
 }

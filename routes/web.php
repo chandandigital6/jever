@@ -52,6 +52,7 @@ Route::get('forget',[AuthController::class,'forget'])->name('auth.forget');
 Route::post('forget',[AuthController::class,'forget_pass'])->name('auth.forget_pass');
 Route::get('reset-password',[AuthController::class,'reset_password'])->name('reset-password');
 Route::post('store-password',[AuthController::class,'store_password'])->name('store-password');
+Route::get('products', [HomeController::class, 'product'])->name('products');
 
 Route::prefix('inquiry')->name('inquiry.')->group(function(){
     Route::get('/', [InquiryController::class, 'index'])->name('index');
@@ -165,6 +166,8 @@ Route::group(['middleware' => ['auth']],function (){
         Route::post('update/{price}', [PriceController::class, 'update'])->name('update');
         Route::get('delete/{price}', [PriceController::class, 'delete'])->name('delete');
     });
+
+
 
 
 });
