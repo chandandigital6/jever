@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\Coin;
 use App\Models\Contact;
 use App\Models\Plan;
+use App\Models\Product;
 use App\Models\Update;
 use Illuminate\Http\Request;
 
@@ -53,5 +54,9 @@ class FrontController extends Controller
 //
         // Pass the data to the view
         return view('front.blogDetails', compact('blog', 'categories', 'recentPosts'));
+    }
+
+    public function productDetails(Product $product){
+        return view('front.productDetail', compact('product'));
     }
 }

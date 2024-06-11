@@ -40,6 +40,7 @@
             <li><a href="{{route('bankDetail')}}">Bank Details</a></li>
             <li><a href="{{route('calendar')}}">Calendar</a></li>
             <li><a href="{{route('contacts')}}">Contact Us</a></li>
+            <li><a href="{{route('products')}}">Products</a></li>
         </ul>
     </nav>
 </header>
@@ -58,9 +59,10 @@
         <li><a href="{{ route('bankDetail') }}"><i class="fa fa-bank"></i> Bank Detail</a></li>
         <li><a href="{{route('calendar')}}"><i class="fa fa-calendar"></i> Economic Calendar</a></li>
         <li><a href="{{route('contacts')}}"><i class="fa fa-envelope"></i> Contact Us</a></li>
-        <li><a href="{{route('home')}}"><i class="fa fa-globe"></i> Visit Our Website</a></li>
-        <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>
-        <li><a href="#"><i class="fa fa-star"></i> Rate Our App</a></li>
+        <li><a href="{{route('products')}}"><i class="fab fa-product-hunt"></i> Products</a></li>
+        <li><a href="{{route('home')}}" target="_blank"><i class="fa fa-globe"></i> Visit Our Website</a></li>
+{{--        <li><a href="#"><i class="fa fa-share-alt"></i> Share</a></li>--}}
+{{--        <li><a href="#"><i class="fa fa-star"></i> Rate Our App</a></li>--}}
     </ul>
 
     <div class="social-media">
@@ -91,6 +93,7 @@
                 <li><a href="{{route('bankDetail')}}">Bank Detail</a></li>
                 <li><a href="{{route('calendar')}}">Calendar</a></li>
                 <li><a href="{{route('contacts')}}">Contact Us</a></li>
+                <li><a href="{{route('products')}}">Products</a></li>
             </ul>
         </div>
         <div class="footer-section contact">

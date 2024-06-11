@@ -53,6 +53,7 @@ Route::post('forget',[AuthController::class,'forget_pass'])->name('auth.forget_p
 Route::get('reset-password',[AuthController::class,'reset_password'])->name('reset-password');
 Route::post('store-password',[AuthController::class,'store_password'])->name('store-password');
 Route::get('products', [HomeController::class, 'product'])->name('products');
+Route::get('productDetails/{product}', [FrontController::class, 'productDetails'])->name('productDetails');
 
 Route::prefix('inquiry')->name('inquiry.')->group(function(){
     Route::get('/', [InquiryController::class, 'index'])->name('index');
