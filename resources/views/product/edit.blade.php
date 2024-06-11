@@ -47,7 +47,7 @@
             </div>
 
             <div class="form-group">
-                <label for="weight">Price</label>
+                <label for="weight">Weight (Gram)</label>
                 <input type="text" class="form-control" id="weight" name="weight" value="{{ $product->weight }}" required>
             </div>
 
