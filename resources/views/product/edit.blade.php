@@ -19,6 +19,15 @@
             <div class="form-group">
                 <label for="image">Product Image</label>
                 <input type="file" class="form-control" id="images" name="images[]" multiple >
+
+                <div class="row justify-content-start gap-3">
+                    @foreach($product->images as $image)
+                        <div class="col-md-2 position-relative">
+                            <img src="{{asset('storage/'. $image->path)}}" alt="" style="width: 100%; height: auto;">
+                            <a href="{{route('productImageDelete', ['image' => $image])}}" class="position-absolute btn btn-danger p-1" style="margin-left: -20px">x</a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
             <div class="form-group">
                 <label for="image">Name</label>
@@ -28,8 +37,8 @@
                 <label for="title">Metal</label>
                 <select name="metal" id="" class="form-control">
                     <option value="">Select</option>
-                    <option value="gold" {{$product->carat == 'gold' ? 'selected' : ''}}>Gold</option>
-                    <option value="silver" {{$product->carat == 'silver' ? 'selected' : ''}}>Silver</option>
+                    <option value="gold" {{$product->metal == 'gold' ? 'selected' : ''}}>Gold</option>
+                    <option value="silver" {{$product->metal == 'silver' ? 'selected' : ''}}>Silver</option>
                 </select>
             </div>
             <div class="form-group">

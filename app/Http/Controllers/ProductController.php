@@ -54,14 +54,22 @@ class ProductController extends Controller
         $product->update($request->all());
 
         $images = $request->file('images');
-        foreach ($images as $image){
-            $path = $image->store('public/productImage');
-            $productImage = ProductImage::create([
-                'product_id' => $product->id,
-                'path' => str_replace('public/', '', $path),
-            ]);
+        if ($images != null){
+            foreach ($images as $image){
+                $path = $image->store('public/productImage');
+                $productImage = ProductImage::create([
+                    'product_id' => $product->id,
+                    'path' => str_replace('public/', '', $path),
+                ]);
+            }
         }
 
         return redirect('product')->with('success', 'updated successfully');
+    }
+
+    public function productImageDelete(ProductImage $image){
+        unlink('storage/'. $image->path);
+        $image->delete();
+        return back()->with('success', 'Removed successfully');
     }
 }
